@@ -14,7 +14,7 @@ class CarsTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testinsert()
     {
         $cars = new cars();
         $cars->Make = 'Chevrolet';
@@ -22,4 +22,11 @@ class CarsTest extends TestCase
         $cars->Year= '2030';
         $this->assertTrue($cars->save());
     }
+    public function testupdate()
+    {
+        $cars = Cars::find(12);
+        $cars->Year = '2000';
+        $this->assertTrue($cars->save());
+    }
+
 }
