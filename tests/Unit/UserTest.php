@@ -15,19 +15,16 @@ class UserTest extends TestCase
      * @return void
      */
 
-    public function testinsert()
+
+
+    public function testdelete()
     {
-        $user = new User();
-        $user->name = 'Diana Hummel';
+        $user = User::find(56);
+        $user->Name = 'Diana Hummel';
         $user->email= 'diana@yahoo.com';
         $user->password= '123test';
-        $this->assertTrue($user->save());
-    }
-    public function testupdate()
-    {
-        $user = User::find(12);
-        $user->Name = 'Steve Smith';
-        $this->assertTrue($user->save());
+        $user->save();
+        $this->assertTrue($user->delete());
     }
 
 }
