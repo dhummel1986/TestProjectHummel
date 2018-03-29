@@ -16,7 +16,15 @@ class UserTest extends TestCase
      */
     public function testExample()
     {
-        $user= User::inRandomOrder()->first();
-        $this->assertInternalType('int',$user->id);
-            }
+        $user = new User();
+        $user->name = 'Diana';
+        $user->email= 'diana@yahoo.com';
+            $user->password= '123test';
+        $this->assertTrue($user->save());
+
+
+    }
+
+
 }
+
