@@ -10,6 +10,7 @@ use App\Cars;
 
 class CarsTest extends TestCase
 {
+
     public function testdelete()
 {
         $cars = Cars::find(53);
@@ -24,4 +25,14 @@ class CarsTest extends TestCase
         $recordCount = $cars->count();
         $this->assertInternalType(IsType::TYPE_INT, $recordCount );
     }
+
+public function testinsert()
+{
+$cars= new Cars();
+$cars->Make= 'Chevrolet';
+$cars->Model= 'Impala';
+$cars->year= '2045';
+$this->assertTrue($cars->save());
+
+}
 }
