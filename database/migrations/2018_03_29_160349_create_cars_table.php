@@ -17,7 +17,7 @@ class CreateCarsTable extends Migration
             $table->increments('id');
             $table->string('Make');
             $table->string('Model');
-            $table->integer('Year');
+            $table->integer('year')->nullable();
             $table->timestamps();
         });
     }
