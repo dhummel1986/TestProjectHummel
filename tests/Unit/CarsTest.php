@@ -13,7 +13,7 @@ class CarsTest extends TestCase
 
     public function testdelete()
 {
-        $cars = Cars::find(55);
+        $cars = Cars::find(60);
         $cars-> Make = 'Chevrolet';
         $cars-> Model= 'Impala';
         $cars-> Year= '2030';
@@ -43,6 +43,15 @@ $this->assertTrue($cars->save());
         $this->assertInternalType("int",$Year);
 
     }
+    public function testmodelcal()
+    {
 
-    
+        $cars = Cars::inRandomOrder()->first();
+        $model = (string) $cars->Model;
+        $this->assertInternalType("string",$model);
+        dd($model);
+
+    }
+
+
 }
