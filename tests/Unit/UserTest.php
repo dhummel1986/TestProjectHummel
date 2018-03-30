@@ -5,27 +5,16 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Constraint\IsType;
 use App\User;
 
 class UserTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
 
-
-
-    public function testdelete()
-    {
-        $user = User::find(56);
-        $user->Name = 'Diana Hummel';
-        $user->email= 'diana@yahoo.com';
-        $user->password= '123test';
-        $user->save();
-        $this->assertTrue($user->delete());
+    public function testCollectionCount(){
+        $user= User::All();
+        $recordCount = $user->count();
+        $this->assertInternalType(IsType::TYPE_INT, $recordCount );
     }
 
 }
-
